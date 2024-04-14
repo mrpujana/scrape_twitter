@@ -52,11 +52,25 @@ latest_x='//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[1]/d
 to_click(latest_x,by=By.XPATH)
 
 
+##### CLICK THE FIRST ACCOUNT #####
+
 # first_account='//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[3]/section/div/div/div[3]/div/div/div/div/div[2]/div[1]/div[1]/div/div[1]/a/div/div[1]/span/span[1]'
 # to_click(first_account,by=By.XPATH)
 
-breakpoint()
+# breakpoint()
 
-sleep(20)
+# sleep(20)
+
+## Load HTML Content of the current page ##
+
+tweets = driver.find_elements(By.XPATH, '//div[@data-testid="tweetText"]') ## tweets contain attribute @data-testid="tweetText", so filter divs by that attribute
+
+
+for tweet in tweets:
+    tweet_text = tweet.text
+    print(tweet_text)
+    print("#" * 50)
+
+breakpoint()
 
 driver.quit()
